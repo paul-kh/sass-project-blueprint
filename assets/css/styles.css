@@ -1,0 +1,187 @@
+/**********************
+    0 - 600px     : phone
+    600 - 900px   : tablet portrait
+    900 - 1200px  : Tablet landscape
+    [1200 -1800px]: Desktop, is where normal styles apply
+    1800px +      : Big desktop
+  
+    $beakpoint arguments choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+    
+    Notes:
+      - 'em' works better than 'rem' for media query.
+      - 1em = 16px
+    
+    ORDER: Base(font-size) + typography > general layout + grid > page layout > components
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 37.5%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  padding: 3rem; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #111; }
+
+.heading-primary {
+  color: #111; }
+  .heading-primary--main {
+    font-size: 6rem;
+    display: block; }
+  .heading-primary--sub {
+    font-size: 3rem;
+    display: block; }
+
+.heading-secondary {
+  font-size: 4rem; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 6rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 3rem; }
+
+.header {
+  background-color: #111;
+  width: 100%;
+  height: 95vh;
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 3px; }
+  .header__text-box {
+    padding: 5rem;
+    width: 95%;
+    text-align: center;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+.section1 {
+  width: 100%;
+  height: 50rem;
+  background-image: linear-gradient(to right, rgba(128, 128, 128, 0.3), darkgrey);
+  padding: 6rem 3rem; }
+
+.section2 {
+  width: 100%;
+  height: 50rem;
+  background-image: linear-gradient(to bottom right, rgba(17, 17, 17, 0.5), rgba(255, 0, 0, 0.5));
+  padding: 6rem 3rem; }
+
+.footer {
+  width: 100%;
+  height: 20rem;
+  background-color: #222;
+  padding: 6rem 3rem; }
+
+.btn {
+  /* Use pseudo element 'after' to create a child element of btn */ }
+  .btn, .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    position: relative;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* box-shadow: x y blur color */ }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active, .btn:focus {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+    outline: none; }
+  .btn--white {
+    background-color: #fff;
+    color: gray; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn--black {
+    background-color: #111;
+    color: #fff; }
+    .btn--black::after {
+      background-color: #111; }
+  .btn::after {
+    content: "";
+    /* This is a required property even if it's set to empty "" */
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* set delay .75s for other animation to finish first */
+    animation-fill-mode: backwards;
+    /* apply the style of keyframe's starting animation (0%) before the animation starts */ }
+
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #111;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #111;
+  padding: 3px;
+  transition: all 0.2s; }
+
+.btn-text:hover {
+  background-color: #111;
+  color: #fff;
+  box-shadow: 0 1rem 2rem rgba(34, 34, 34, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 2rem rgba(34, 34, 34, 0.15);
+  transform: translateY(0); }

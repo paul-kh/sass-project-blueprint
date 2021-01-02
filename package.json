@@ -1,0 +1,19 @@
+{
+  "name": "sass_blueprint",
+  "version": "1.0.0",
+  "description": "Blueprint for sass project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass ./sass/main.scss ./assets/css/styles.css -w"
+  },
+  "keywords": [
+    "sass",
+    "blueprint"
+  ],
+  "author": "Paul Chheang",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
